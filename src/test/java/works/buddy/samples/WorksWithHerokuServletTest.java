@@ -5,8 +5,9 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintWriter;
 
@@ -25,7 +26,7 @@ public class WorksWithHerokuServletTest {
 
     @Before
     public void setUp() throws Exception {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
         servlet = new WorksWithHerokuServlet();
     }
 
@@ -33,9 +34,12 @@ public class WorksWithHerokuServletTest {
     public void testDoGet() throws Exception {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         PrintWriter writer = new PrintWriter(out);
+
         when(response.getWriter()).thenReturn(writer);
 
         servlet.doGet(request, response);
-        assertEquals("Buddy Works with Heroku", new String( out.toByteArray(), "UTF-8"));
+
+        writer.flush();  // important
+        assertEquals("Buddy Works with Heroku", out.toString("UTF-8"));
     }
 }
