@@ -10,7 +10,7 @@
     <version>1.0.0</version>
     <packaging>war</packaging>
 
-    <!-- 🔧 Control Java version explicitly -->
+    <!-- Control Java version explicitly -->
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -19,7 +19,7 @@
 
     <dependencies>
 
-        <!-- ✅ Modern Servlet API -->
+        <!-- Modern Servlet API -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -27,7 +27,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- ✅ Stable JUnit -->
+        <!-- Stable JUnit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -35,7 +35,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- ✅ Replace deprecated mockito-all -->
+        <!-- Mockito core -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
@@ -48,7 +48,7 @@
     <build>
         <plugins>
 
-            <!-- ✅ Force correct Java compilation -->
+            <!-- Force correct Java compilation -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -59,7 +59,7 @@
                 </configuration>
             </plugin>
 
-            <!-- (Optional) Keep if you really need Jetty runner -->
+            <!-- Optional: Jetty runner -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
